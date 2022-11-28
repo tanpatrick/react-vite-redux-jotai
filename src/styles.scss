@@ -1,0 +1,38 @@
+@import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/variables';
+
+.bg-green,
+.btn-green,
+.text-bg-green {
+  background-color: $green;
+}
+
+.bg-orange,
+.btn-orange,
+.text-bg-orange {
+  background-color: $orange;
+}
+
+.bg-teal,
+.btn-teal,
+.text-bg-teal {
+  background-color: $teal;
+}
+
+.bg-pink,
+.btn-pink,
+.text-bg-pink {
+  background-color: $pink;
+}
+
+.bg-purple,
+.btn-purple,
+.text-bg-purple {
+  background-color: $purple;
+}
+
+.bg-yellow,
+.btn-yellow,
+.text-bg-yellow {
+  background-color: $yellow;
+}
