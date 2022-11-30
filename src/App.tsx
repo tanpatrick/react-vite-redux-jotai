@@ -1,29 +1,36 @@
 import { Col, Row } from './components/Grid';
-import { CounterCard } from './components/CounterCard';
-import { Summary } from './components/Summary';
+
+import { JotaiSummary } from './jotai/JotaiSummary';
+import { JotaiCounterCard } from './jotai/JotaiCounterCard';
+import { JotaiFeed } from './jotai/JotaiFeed';
 
 function App() {
   return (
     <>
+      <JotaiApp />
+    </>
+  );
+}
+
+const JotaiApp = () => {
+  return (
+    <>
       <Row>
         <Col size={6}>
-          <Summary
-            summaries={[
-              { name: 'A', value: 1 },
-              { name: 'B', value: 1 },
-            ]}
-          />
-          <div className="my-3"></div>
+          <JotaiSummary />
         </Col>
         <Col size={3}>
-          <CounterCard counter="A" />
+          <JotaiCounterCard name="A" />
         </Col>
         <Col size={3}>
-          <CounterCard counter="B" />
+          <JotaiCounterCard name="B" />
+        </Col>
+        <Col>
+          <JotaiFeed />
         </Col>
       </Row>
     </>
   );
-}
+};
 
 export default App;

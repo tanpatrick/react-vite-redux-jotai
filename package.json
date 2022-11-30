@@ -10,6 +10,9 @@
   },
   "dependencies": {
     "bootstrap": "^5.2.3",
+    "date-fn": "^0.0.2",
+    "date-fns": "^2.29.3",
+    "jotai": "^1.10.0",
     "path": "^0.12.7",
     "react": "^18.2.0",
     "react-dom": "^18.2.0"

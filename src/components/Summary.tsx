@@ -8,7 +8,7 @@ type Summary = {
 
 export const Summary = (props: { summaries: Summary[] }) => {
   return (
-    <Card title="Summary">
+    <Card title="Summary" titleSize="h3">
       <div className="p-3">
         <table className="table table-bordered">
           <thead>

@@ -1,34 +1,21 @@
-import { useState } from 'react';
 import { Button, ButtonGroup } from './Button';
 import { Card } from './Card';
 import { ValueDisplay } from './ValueDisplay';
 
-export const CounterCard = ({ counter }: { counter: string }) => {
-  const [score, setScore] = useState(0);
+type CounterCardProps = {
+  name: string;
+  onDecrease: () => void;
+  onIncrease: () => void;
+  counter: number;
+};
+
+export const CounterCard = ({ name, counter, onIncrease, onDecrease }: CounterCardProps) => {
   return (
-    <Card title={`Counter ${counter}`}>
-      <ValueDisplay value={score} />
+    <Card title={`Counter ${name}`} titleSize="h4">
+      <ValueDisplay value={counter} />
       <ButtonGroup>
-        <Button
-          label="+"
-          onClick={() => {
-            if (score < 20) {
-              setScore(score + 1);
-            } else {
-              alert('MAX!');
-            }
-          }}
-        />
-        <Button
-          label="-"
-          onClick={() => {
-            if (score > 1) {
-              setScore(score - 1);
-            } else {
-              alert('MIN!');
-            }
-          }}
-        />
+        <Button label="+" onClick={onIncrease} />
+        <Button label="-" onClick={onDecrease} />
       </ButtonGroup>
     </Card>
   );
