@@ -4,7 +4,7 @@ import { Header } from './Header';
 export const Card = (props: {
   children: React.ReactNode;
   title?: string;
-  titleSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h4';
+  titleSize?: 'h1' | 'h2' | 'h3' | 'h4' | 'h4' | 'h5';
 }) => (
   <div className="border">
     {props.title && <Header value={props.title} size={props.titleSize || 'h1'} />}

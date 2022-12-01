@@ -1,41 +1,34 @@
 import { useAtom } from 'jotai';
 import { useEffect, useState } from 'react';
 import { Feed } from '../components/Feed';
-import { counterAtom } from './JotaiCounterCard';
+import { counterAtom, feedAtom } from './JotaiCounterCard';
 
 export const JotaiFeed = () => {
-  const [counters, _] = useAtom(counterAtom);
-  const [feeds, setFeeds] = useState<Feed[]>([]);
+  const [feeds, _] = useAtom(feedAtom);
 
-  const counterA = counters['A'];
-  const counterB = counters['B'];
+  const [counterTracker, setCounterTracker] = useState<{ [key: string]: number }>({});
 
-  const [counterTracker, setCounterTracker] = useState({ A: 0, B: 0 });
+  // useEffect(() => {
+  //   const keys = Object.keys(counters);
 
-  useEffect(() => {
-    setFeeds([
-      {
-        actionType: counterTracker.A < counterA ? 'increase' : 'decrease',
-        name: 'A',
-        timestamp: new Date().toISOString(),
-      },
-      ...feeds,
-    ]);
-    setCounterTracker({ ...counterTracker, A: counterA });
-  }, [counterA]);
+  //   const temp = keys.reduce((output, key) => {
+  //     return { ...output, [key]: counters[key] };
+  //   }, {});
 
-  useEffect(() => {
-    counterB &&
-      setFeeds([
-        {
-          actionType: counterTracker.B < counterB ? 'increase' : 'decrease',
-          name: 'B',
-          timestamp: new Date().toISOString(),
-        },
-        ...feeds,
-      ]);
-    setCounterTracker({ ...counterTracker, B: counterB });
-  }, [counterB]);
+  //   const arr = keys
+  //     .filter((key) => counterTracker[key] !== (counters[key] || 0))
+  //     .map((key) => {
+  //       if (counterTracker[key] > (counters[key] || 0)) {
+  //         return { name: key, actionType: 'decrease', timestamp: new Date().toISOString() };
+  //       } else if (counterTracker[key] < (counters[key] || 0)) {
+  //         return { name: key, actionType: 'increase', timestamp: new Date().toISOString() };
+  //       }
+  //     });
+
+  //   setFeeds([...feeds].concat(arr));
+
+  //   setCounterTracker(temp);
+  // }, [counters]);
 
   return <Feed feeds={feeds} />;
 };

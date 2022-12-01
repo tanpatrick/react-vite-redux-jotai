@@ -29,12 +29,15 @@ const slice = createSlice({
       .addCase(counterActions.increase, (state, { payload }) => {
         state.feeds = [
           {
-            actionType: 'decrease',
+            actionType: 'increase',
             name: payload,
             timestamp: new Date().toISOString(),
           },
           ...state.feeds,
         ];
+      })
+      .addCase(counterActions.undo, (state) => {
+        state.feeds = state.feeds.slice(1, state.feeds.length);
       });
   },
 });
