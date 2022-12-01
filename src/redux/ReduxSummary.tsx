@@ -2,15 +2,6 @@ import { Summary } from '../components/Summary';
 import { useAppSelector } from './store';
 
 export const ReduxSummary = () => {
-  const a = useAppSelector((state) => state.counterReducer['A']);
-  const b = useAppSelector((state) => state.counterReducer['B']);
-
-  return (
-    <Summary
-      summaries={[
-        { name: 'A', value: a },
-        { name: 'B', value: b },
-      ]}
-    />
-  );
+  const counters = useAppSelector((state) => state.counterReducer);
+  return <Summary summaries={Object.keys(counters).map((key) => ({ name: key, value: counters[key] || 0 }))} />;
 };

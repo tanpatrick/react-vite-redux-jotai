@@ -6,9 +6,6 @@ export const JotaiApp = () => {
   return (
     <>
       <Row>
-        <Col size={6}>
-          <JotaiSummary />
-        </Col>
         <Col size={3}>
           <JotaiCounterCard name="A" />
         </Col>
@@ -16,6 +13,7 @@ export const JotaiApp = () => {
           <JotaiCounterCard name="B" />
         </Col>
       </Row>
+      <JotaiSummary />
     </>
   );
 };

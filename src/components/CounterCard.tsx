@@ -12,7 +12,7 @@ type CounterCardProps = {
 export const CounterCard = ({ name, counter, onIncrease, onDecrease }: CounterCardProps) => {
   return (
     <Card title={`Counter ${name}`} titleSize="h4">
-      <ValueDisplay value={counter} />
+      <ValueDisplay value={counter || 0} />
       <ButtonGroup>
         <Button label="+" onClick={onIncrease} />
         <Button label="-" onClick={onDecrease} />

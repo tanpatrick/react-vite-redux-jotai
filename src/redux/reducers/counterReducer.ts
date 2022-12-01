@@ -4,10 +4,7 @@ type CounterState = {
   [key: string]: number;
 };
 
-const initialState: CounterState = {
-  A: 0,
-  B: 0,
-};
+const initialState: CounterState = {};
 
 const slice = createSlice({
   name: 'counter',

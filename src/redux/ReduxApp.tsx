@@ -8,9 +8,6 @@ export const ReduxApp = () => {
   return (
     <Provider store={store}>
       <Row>
-        <Col size={6}>
-          <ReduxSummary />
-        </Col>
         <Col size={3}>
           <ReduxCounterCard name="A" />
         </Col>
@@ -18,6 +15,7 @@ export const ReduxApp = () => {
           <ReduxCounterCard name="B" />
         </Col>
       </Row>
+      <ReduxSummary />
     </Provider>
   );
 };
