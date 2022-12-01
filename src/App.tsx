@@ -1,36 +1,23 @@
 import { Col, Row } from './components/Grid';
-
-import { JotaiSummary } from './jotai/JotaiSummary';
-import { JotaiCounterCard } from './jotai/JotaiCounterCard';
-import { JotaiFeed } from './jotai/JotaiFeed';
+import { Header } from './components/Header';
+import { JotaiApp } from './jotai/JotaiApp';
+import { ReduxApp } from './redux/ReduxApp';
 
 function App() {
   return (
     <>
-      <JotaiApp />
-    </>
-  );
-}
-
-const JotaiApp = () => {
-  return (
-    <>
       <Row>
         <Col size={6}>
-          <JotaiSummary />
+          <Header value="Jotai" size="h2" />
+          <JotaiApp />
         </Col>
-        <Col size={3}>
-          <JotaiCounterCard name="A" />
-        </Col>
-        <Col size={3}>
-          <JotaiCounterCard name="B" />
-        </Col>
-        <Col>
-          <JotaiFeed />
+        <Col size={6}>
+          <Header value="Redux" size="h2" />
+          <ReduxApp />
         </Col>
       </Row>
     </>
   );
-};
+}
 
 export default App;
