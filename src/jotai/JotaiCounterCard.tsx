@@ -1,29 +1,32 @@
-import { atom, useAtom } from 'jotai';
+import { atom, useAtomValue, useSetAtom } from 'jotai';
 import { CounterCard } from '../components/CounterCard';
 
 type CounterAtomProps = {
   [key: string]: number;
 };
 
-export const counterAtom = atom<CounterAtomProps>({
-  A: 0,
-  B: 0,
-});
+export const counterAtom = atom<Partial<CounterAtomProps>>({});
 
 export const JotaiCounterCard = ({ name }: { name: string }) => {
-  const [counters, set] = useAtom(counterAtom);
+  const counter = useAtomValue(counterAtom)[name];
+  const setCounter = useSetAtom(counterAtom);
+
   return (
     <CounterCard
       name={name}
       onDecrease={() => {
-        const current = counters[name];
-        set({ ...counters, [name]: current - 1 });
+        setCounter((prev) => {
+          const current = prev[name] || 0;
+          return { ...prev, [name]: current - 1 };
+        });
       }}
       onIncrease={() => {
-        const current = counters[name];
-        set({ ...counters, [name]: current + 1 });
+        setCounter((prev) => {
+          const current = prev[name];
+          return { ...prev, [name]: current || 0 + 1 };
+        });
       }}
-      counter={counters[name]}
+      counter={counter || 0}
     />
   );
 };
