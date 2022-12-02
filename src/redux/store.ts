@@ -4,11 +4,13 @@ import type { TypedUseSelectorHook } from 'react-redux';
 
 import counterReducer from './reducers/counterReducer';
 import feedsReducer from './reducers/feedReducer';
+import usersReducer from './reducers/usersReducer';
 
 const store = configureStore({
   reducer: {
     counterReducer,
     feedsReducer,
+    usersReducer,
   },
 });
 
