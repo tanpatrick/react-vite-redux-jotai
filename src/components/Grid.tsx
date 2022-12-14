@@ -3,5 +3,5 @@ export const Col = (props: { children: React.ReactNode; size?: number }) => (
 );
 
 export const Row = (props: any) => {
-  return <div className="row justify-content-center">{props.children}</div>;
+  return <div className={`row justify-content-center ${props.className}`}>{props.children}</div>;
 };

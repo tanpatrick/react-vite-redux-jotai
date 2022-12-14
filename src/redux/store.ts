@@ -2,15 +2,11 @@ import { configureStore } from '@reduxjs/toolkit';
 import { useDispatch, useSelector } from 'react-redux';
 import type { TypedUseSelectorHook } from 'react-redux';
 
-import counterReducer from './reducers/counterReducer';
-import feedsReducer from './reducers/feedReducer';
-import usersReducer from './reducers/usersReducer';
+import apiReducer, { ApiState } from './reducers/apiReducer';
 
 const store = configureStore({
   reducer: {
-    counterReducer,
-    feedsReducer,
-    usersReducer,
+    api: apiReducer,
   },
 });
 
@@ -21,3 +17,11 @@ export type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
+
+export const useApiSelector = <T>(key: string) => {
+  return useAppSelector((state) => state.api.data[key] || {}) as ApiState<T>;
+};
+
+export const useApiErrorSelector = () => {
+  return useAppSelector((state) => state.api.error);
+};

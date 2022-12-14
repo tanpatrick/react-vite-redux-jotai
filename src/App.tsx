@@ -17,10 +17,6 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Row>
         <Col size={6}>
-          <Header value="Jotai" size="h2" />
-          <JotaiApp />
-        </Col>
-        <Col size={6}>
           <Header value="Redux" size="h2" />
           <ReduxApp />
         </Col>
